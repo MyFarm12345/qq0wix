@@ -1,0 +1,177 @@
+	<!DOCTYPE html>
+	<html lang="ru">
+	<head>
+	  <meta charset="UTF-8">
+	  <title>qq0wix</title>
+	  <style>
+		body {
+		  font-family: 'Arial', sans-serif;
+		  background: #ffeef2;
+		  display: flex;
+		  flex-direction: column;
+		  justify-content: center;
+		  align-items: center;
+		  height: 100vh;
+		  margin: 0;
+		}
+		.envelope {
+		  width: 300px;
+		  height: 200px;
+		  background: #ffb6c1;
+		  position: relative;
+		  cursor: pointer;
+		  border-radius: 10px;
+		  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		  overflow: hidden;
+		}
+		.flap {
+		  width: 300px;
+		  height: 80px;
+		  background: #ff69b4;
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  transform-origin: top center;
+		  transition: transform 1s;
+		}
+		.flap1 {
+		  width: 292px;
+		  height: 80px;
+		  background: #808080;
+		  position: absolute;
+		  top: 0;
+		  left: 2;
+		  transform-origin: top center;
+		  transition: transform 1s;
+		}
+		.flap2 {
+			width: 292px;
+			height: 80px;
+			background: #808080;
+			position: absolute;
+			top: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: white;
+			font-weight: bold;
+			font-size: 18px;
+			border-radius: 5px;
+t			ransition: transform 1s;
+		}
+		
+		
+		.open .flap {
+		  transform: rotateX(-180deg);
+		}
+		.letter {
+		  display: none;
+		  background: white;
+		  padding: 20px;
+		  border-radius: 10px;
+		  text-align: center;
+		  max-width: 400px;
+		  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+		  animation: fadeIn 1s ease;
+		}
+		.letter p {
+		  font-size: 18px;
+		  margin-bottom: 20px;
+		}
+		.letter img {
+		  max-width: 200px;
+		  border-radius: 10px;
+		}
+		.letter button {
+		  margin-top: 20px;
+		  padding: 10px 20px;
+		  font-size: 16px;
+		  border: none;
+		  border-radius: 8px;
+		  background: #ff69b4;
+		  color: white;
+		  cursor: pointer;
+		}
+		.video {
+		  display: none;
+		  text-align: center;
+		}
+		.video video {
+		  max-width: 400px;
+		  border-radius: 10px;
+		  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+		}
+		.hint {
+		  margin-top: 20px;
+		  font-size: 20px;
+		  font-weight: bold;
+		  color: #ff4081;
+		  animation: pulse 1s infinite;
+		}
+		@keyframes pulse {
+		  0% { transform: scale(1); }
+		  50% { transform: scale(1.1); }
+		  100% { transform: scale(1); }
+		}
+		@keyframes fadeIn {
+		  from { opacity: 0; transform: translateY(20px); }
+		  to { opacity: 1; transform: translateY(0); }
+		}
+		
+		  font-size: 20px;
+  font-weight: bold;
+  color: #ff4081;
+  text-align: center;
+  margin-bottom: 15px;
+}
+	  </style>
+	</head>
+	<body>
+	  <div class="envelope" id="envelope">
+	  	<div class="flap1"></div>
+		<a class="flap2">Письмо</a>
+		<div class="flap"></div>
+	  </div>
+	  <div class="hint">Жми! Жми! Жми!</div>
+
+	  <div class="letter" id="letter">
+		<p>Любимая) Я знаю, что у тебя сейчас не самое лучшее настроение, поэтому я сделал тебе эту открытку для поднятия настроения еее</p>
+		<img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" alt="gif">
+		<br>
+		<button onclick="showVideo()">Далее ➡️</button>
+	  </div>
+	  
+<div class="video" id="video">
+  <div class="video-text">Этим видео я хочу тебе показать, что оно такое же <br>комфортное как и ты для меня. что оно меня успакаивает как и ты меня Полин.<br>я лишь хочу чтобы ты ощутила такое же)</div>
+  <video controls>
+    <source src="your-video.mp4" type="video/mp4">
+    Твой браузер не поддерживает видео.
+  </video>
+</div>
+	  
+
+	  <script>
+		const envelope = document.getElementById('envelope');
+		const letter = document.getElementById('letter');
+		const video = document.getElementById('video');
+		const hint = document.querySelector('.hint');
+
+		envelope.addEventListener('click', () => {
+		  envelope.classList.add('open');
+		  setTimeout(() => {
+			envelope.style.display = 'none';
+			hint.style.display = 'none';
+			letter.style.display = 'block';
+		  }, 1000);
+		});
+
+		function showVideo() {
+		  letter.style.display = 'none';
+		  video.style.display = 'block';
+		}
+	  </script>
+	</body>
+	</html>
